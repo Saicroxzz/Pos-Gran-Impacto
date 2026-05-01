@@ -1,0 +1,13 @@
+/* Estilos específicos para el botón de backup
+   Position it in the center column (grid-column 2) and row 2 if needed
+   Esto asegura que quede "en la mitad" de las opciones */
+#btn-backup-root {
+  grid-column: 2;
+}
+
+@media (max-width: 1024px) {
+  /* Mantener comportamiento normal en tablets/móviles si cambia el grid */
+  #btn-backup-root {
+    grid-column: auto;
+  }
+}

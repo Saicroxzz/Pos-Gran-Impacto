@@ -1,0 +1,356 @@
+/* ============================================
+   SISTEMA POS - MENÚ PRINCIPAL PROFESIONAL
+   Diseño sobrio y práctico para uso empresarial
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #2c3e50;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.menu-principal {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8ecef 0%, #f5f7fa 100%);
+}
+
+.menu-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.menu-header {
+    text-align: center;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.menu-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.menu-header p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* ============================================
+   GRID DE OPCIONES
+   ============================================ */
+
+.menu-opciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* ============================================
+   CARDS INDIVIDUALES
+   ============================================ */
+
+.menu-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-decoration: none;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-card:hover,
+.menu-card.focused {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: #3498db;
+}
+
+.menu-card:active {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Indicador de foco para navegación con teclado */
+.menu-card.focused::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #3498db;
+    border-radius: 12px;
+    opacity: 0.5;
+}
+
+/* ============================================
+   ICONOS SVG
+   ============================================ */
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+    color: #3498db;
+    transition: all 0.3s ease;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+}
+
+.menu-card:hover .card-icon,
+.menu-card.focused .card-icon {
+    transform: scale(1.1);
+    color: #2980b9;
+}
+
+/* ============================================
+   TEXTOS DE LAS CARDS
+   ============================================ */
+
+.menu-card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.menu-card p {
+    font-size: 0.875rem;
+    color: #7f8c8d;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.menu-card:hover h2,
+.menu-card.focused h2 {
+    color: #3498db;
+}
+
+/* ============================================
+   FOOTER DEL MENÚ
+   ============================================ */
+
+.menu-footer {
+    text-align: center;
+    padding: 10px;
+    animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.menu-footer p {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    font-weight: 400;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .menu-opciones {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .menu-card {
+        padding: 25px 15px;
+    }
+
+    .card-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .menu-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-opciones {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .menu-card {
+        padding: 25px 20px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+
+    .menu-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .menu-header p {
+        font-size: 0.95rem;
+    }
+
+    .menu-card h2 {
+        font-size: 1.15rem;
+    }
+
+    .menu-card p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-principal {
+        padding: 15px;
+    }
+
+    .menu-container {
+        gap: 20px;
+    }
+
+    .menu-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .menu-card {
+        padding: 20px 15px;
+    }
+
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .menu-card h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+.menu-card:focus {
+    outline: none;
+}
+
+.menu-card:focus-visible {
+    outline: 3px solid #3498db;
+    outline-offset: 4px;
+}
+
+/* Prevenir animaciones para usuarios con preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   ESTADOS ADICIONALES
+   ============================================ */
+
+/* Efecto de carga al hacer clic */
+.menu-card:active .card-icon {
+    transform: scale(0.95);
+}
+
+/* Mejora de contraste para accesibilidad */
+@media (prefers-contrast: high) {
+    .menu-card {
+        border: 2px solid #2c3e50;
+    }
+
+    .menu-card:hover,
+    .menu-card.focused {
+        border-color: #3498db;
+        background: #f8f9fa;
+    }
+}
